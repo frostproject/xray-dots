@@ -1,0 +1,159 @@
+mixed-port: 7890
+allow-lan: true
+tcp-concurrent: true
+enable-process: true
+find-process-mode: always
+mode: rule
+log-level: info
+ipv6: false
+bind-address: "*"
+keep-alive-interval: 30
+unified-delay: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+        - 443
+        - 8443
+
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+  strict-route: true
+  mtu: 1500
+
+dns:
+  enable: true
+  prefer-h3: true
+  use-hosts: true
+  use-system-hosts: true
+  listen: 127.0.0.1:6868
+  ipv6: false
+  enhanced-mode: redir-host
+  default-nameserver:
+    - tls://1.1.1.1
+    - tls://1.0.0.1
+    - https://1.1.1.1/dns-query
+  proxy-server-nameserver:
+    - tls://1.1.1.1
+    - tls://1.0.0.1
+    - https://cloudflare-dns.com/dns-query
+  direct-nameserver:
+    - tls://77.88.8.8#DIRECT
+    - https://77.88.8.8/dns-query#DIRECT
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#PROXY
+
+proxies:
+
+proxy-groups:
+  - name: VLESS Proxy
+    type: select
+    remnawave:
+      include-proxies: false
+    proxies:
+      - ✨ Автовыбор
+      - ⚡️ Максимум скорость
+      - 🇫🇮 Финляндия
+      - 🇳🇱 Нидерланды
+      - 🇷🇺 Россия
+      - 🇩🇪 Германия
+      - 🇹🇷 Турция
+
+  - name: ✨ Автовыбор
+    type: load-balance
+    strategy: sticky-sessions
+    interval: 300
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+    exclude-filter: "(?i)(🇷🇺|\bru\b|\brussia\b)"
+
+  - name: ⚡️ Максимум скорость
+    type: url-test
+    interval: 300
+    tolerance: 150
+    url: https://www.gstatic.com/generate_204
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+
+  - name: 🇷🇺 Россия
+    type: load-balance
+    strategy: sticky-sessions
+    interval: 300
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+    filter: "(?i)(🇷🇺|\bru\b|\brussia\b)"
+
+  - name: 🇳🇱 Нидерланды
+    type: load-balance
+    strategy: sticky-sessions
+    interval: 300
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+    filter: "(?i)(🇳🇱|\bnl\b|\bnetherlands\b)"
+
+  - name: 🇩🇪 Германия
+    type: load-balance
+    strategy: sticky-sessions
+    interval: 300
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+    filter: "(?i)(🇩🇪|\bde\b|\bgermany\b)"
+
+  - name: 🇫🇮 Финляндия
+    type: load-balance
+    strategy: sticky-sessions
+    interval: 300
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+    filter: "(?i)(🇫🇮|\bfi\b|\bfinland\b)"
+
+  - name: 🇹🇷 Турция
+    type: load-balance
+    strategy: sticky-sessions
+    interval: 300
+    hidden: true
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+    filter: "(?i)(🇹🇷|\btr\b|\bturkey\b)"
+
+rule-providers:
+  oisd_big:
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/test/oisd/big.mrs
+    path: ./oisd/big.mrs
+
+rules:
+  - RULE-SET,oisd_big,REJECT
+  - GEOSITE,category-ru,🇷🇺 Россия
+  - MATCH,VLESS Proxy

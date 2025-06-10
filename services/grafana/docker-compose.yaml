@@ -1,0 +1,64 @@
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    hostname: grafana
+    restart: always
+    ports:
+      - "127.0.0.1:3002:3000"
+    environment:
+      - GF_SERVER_DOMAIN=grafana.frostproject.dev
+      - GF_SERVER_ROOT_URL=https://grafana.frostproject.dev
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - remnawave-network
+    depends_on:
+      - prometheus
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    hostname: prometheus
+    restart: always
+    ports:
+      - "127.0.0.1:9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    networks:
+      - remnawave-network
+
+  xray-checker:
+    image: kutovoys/xray-checker
+    container_name: xray-checker
+    hostname: xray-checker
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "127.0.0.1:2112:2112"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:2112/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - remnawave-network
+
+networks:
+  remnawave-network:
+    name: remnawave-network
+    driver: bridge
+    external: true
+
+volumes:
+  prometheus-data:
+    driver: local
+    external: false
+    name: prometheus-data
+  grafana-data:
+    driver: local
+    external: false
+    name: grafana-data

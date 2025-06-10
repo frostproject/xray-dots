@@ -1,0 +1,322 @@
+{
+  "ios": [
+    {
+      "id": "clash-mi",
+      "name": "Clash Mi",
+      "isFeatured": true,
+      "urlScheme": "clash://install-config?url=",
+      "installationStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://apps.apple.com/us/app/clash-mi/id6744321968",
+            "buttonText": {
+              "en": "Open in App Store",
+              "fa": "Sorry, there isn't a Persian translation yet",
+              "ru": "Открыть в App Store"
+            }
+          }
+        ],
+        "description": {
+          "en": "Press the button below to install the app.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для установки приложения."
+        }
+      },
+      "addSubscriptionStep": {
+        "description": {
+          "en": "Click the button below to add subscription automatically. If it fails, copy the subscription link from your browser or the Telegram bot, then go to Profiles tab in the app and tap the '+' button in top right corner then paste your link.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для автоматического добавления подписки. Если не сработает — скопируйте ссылку подписки из браузера или Telegram-бота, затем в приложении перейдите во вкладку My profiles — нажмите на '+' в правом верхнем углу и вставьте ссылку."
+        }
+      },
+      "connectAndUseStep": {
+        "description": {
+          "en": "Proxy settings (servers, auto-routing) are in the Proxy tab. Enable in the main tab via the toggle button on the top. Your traffic is now encrypted through our network! Questions or got issues? Contact our Telegram bot support.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Настройки прокси (серверы, авто-маршрутизация) — во вкладке Proxy. Включите в главной вкладке через кнопку сверху. Ваш трафик теперь шифруется через нашу сеть! Остались вопросы или возникла проблема? Пожалуйста, напишите в техподдержку нашего Telegram-бота."
+        }
+      }
+    },
+    {
+      "id": "happ",
+      "name": "Happ",
+      "isFeatured": false,
+      "urlScheme": "happ://add/",
+      "installationStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215",
+            "buttonText": {
+              "en": "Open in App Store",
+              "fa": "Sorry, there isn't a Persian translation yet",
+              "ru": "Открыть в App Store"
+            }
+          }
+        ],
+        "description": {
+          "en": "Press the button below to install the app.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для установки приложения."
+        }
+      },
+      "addSubscriptionStep": {
+        "description": {
+          "en": "Click the button below to add subscription automatically. If it fails, copy the subscription link from your browser or the Telegram bot, then in the app tap the '+' button in top right corner then paste your link.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для автоматического добавления подписки. Если не сработает — скопируйте ссылку подписки из браузера или Telegram-бота, затем в приложении нажмите на '+' в правом верхнем углу и вставьте ссылку."
+        }
+      },
+      "connectAndUseStep": {
+        "description": {
+          "en": "Proxy settings (servers) are in the list. Enable by tapping the big button in the middle. Your traffic is now encrypted through our network! Questions or got issues? Contact our Telegram bot support.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Настройки прокси (серверы) — ниже в списке. Включите нажав большую кнопку по середине. Ваш трафик теперь шифруется через нашу сеть! Остались вопросы или возникла проблема? Пожалуйста, напишите в техподдержку нашего Telegram-бота."
+        }
+      }
+    }
+  ],
+  "android": [
+    {
+      "id": "flclash",
+      "name": "FlClash",
+      "isFeatured": true,
+      "urlScheme": "clash://install-config?url=",
+      "installationStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-android-arm64-v8a.apk",
+            "buttonText": {
+              "en": "Download APK",
+              "fa": "Download APK",
+              "ru": "Скачать APK"
+            }
+          }
+        ],
+        "description": {
+          "en": "Tap the button below to download the APK file. Then open it and install.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для скачивания APK файла. После этого откройте его и установите."
+        }
+      },
+      "addSubscriptionStep": {
+        "description": {
+          "en": "Click the button below to add subscription automatically. If it fails, copy the subscription link from your browser or the Telegram bot, then go to Profiles tab in the app and tap the '+' button in bottom right corner then paste your link.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для автоматического добавления подписки. Если не сработает — скопируйте ссылку подписки из браузера или Telegram-бота, затем в приложении перейдите во вкладку Profiles — нажмите на '+' в правом нижнем углу и вставьте ссылку."
+        }
+      },
+      "connectAndUseStep": {
+        "description": {
+          "en": "Proxy settings (servers, auto-routing) are in the Proxy tab. Enable in the Dashboard tab via the bottom-right button. Your traffic is now encrypted through our network! Questions or got issues? Contact our Telegram bot support.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Настройки прокси (серверы, авто-маршрутизация) — во вкладке Proxy. Включите во вкладке Dashboard через кнопку в правом нижнем углу. Ваш трафик теперь шифруется через нашу сеть! Остались вопросы или возникла проблема? Пожалуйста, напишите в техподдержку нашего Telegram-бота."
+        }
+      }
+    },
+    {
+      "id": "happ",
+      "name": "Happ",
+      "isFeatured": false,
+      "urlScheme": "happ://add/",
+      "installationStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://play.google.com/store/apps/details?id=com.happproxy",
+            "buttonText": {
+              "en": "Open in Google Play",
+              "fa": "Sorry, there isn't a Persian translation yet",
+              "ru": "Открыть в Google Play"
+            }
+          }
+        ],
+        "description": {
+          "en": "Press the button below to install the app.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для установки приложения."
+        }
+      },
+      "addSubscriptionStep": {
+        "description": {
+          "en": "Click the button below to add subscription automatically. If it fails, copy the subscription link from your browser or the Telegram bot, then in the app tap the '+' button in top right corner then paste your link.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для автоматического добавления подписки. Если не сработает — скопируйте ссылку подписки из браузера или Telegram-бота, затем в приложении нажмите на '+' в правом верхнем углу и вставьте ссылку."
+        }
+      },
+      "connectAndUseStep": {
+        "description": {
+          "en": "Proxy settings (servers) are in the list. Enable by tapping the big button in the middle. Your traffic is now encrypted through our network! Questions or got issues? Contact our Telegram bot support.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Настройки прокси (серверы) — ниже в списке. Включите нажав большую кнопку по середине. Ваш трафик теперь шифруется через нашу сеть! Остались вопросы или возникла проблема? Пожалуйста, напишите в техподдержку нашего Telegram-бота."
+        }
+      }
+    }
+  ],
+  "pc": [
+    {
+      "id": "flclash",
+      "name": "FlClash",
+      "isFeatured": true,
+      "urlScheme": "clash://install-config?url=",
+      "installationStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-windows-amd64-setup.exe",
+            "buttonText": {
+              "en": "Windows",
+              "fa": "Windows",
+              "ru": "Windows"
+            }
+          },
+          {
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-macos-amd64.dmg",
+            "buttonText": {
+              "en": "macOS (Intel)",
+              "fa": "macOS (Intel)",
+              "ru": "macOS (Intel)"
+            }
+          },
+          {
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-macos-arm64.dmg",
+            "buttonText": {
+              "en": "macOS (Apple Silicon)",
+              "fa": "macOS (Apple Silicon)",
+              "ru": "macOS (Apple Silicon)"
+            }
+          },
+          {
+            "buttonLink": "https://github.com/chen08209/FlClash/releases",
+            "buttonText": {
+              "en": "Linux (Manual installation)",
+              "fa": "Linux (Manual installation)",
+              "ru": "Linux (Ручная установка)"
+            }
+          }
+        ],
+        "description": {
+          "en": "Select your computer’s operating system (Windows/macOS/Linux), click the download button, and open the file to install.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Выберите операционную систему вашего компьютера (Windows/macOS/Linux), нажмите кнопку скачивания и откройте файл для установки."
+        }
+      },
+      "additionalBeforeAddSubscriptionStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://t.me/frostproject_faq/207",
+            "buttonText": {
+              "en": "Instruction with screenshots",
+              "fa": "Sorry, there isn't a Persian translation yet",
+              "ru": "Инструкция по картинкам"
+            }
+          }
+        ],
+        "description": {
+          "en": "Enable TUN and System Proxy on the app's main tab (required). You can change the language in the settings — Tools.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Включите TUN и System Proxy на главной вкладке приложения (обязательно). Сменить язык можно в настройках — Tools."
+        },
+        "title": {
+          "en": "Change settings (required)",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Смена настроек (обязательно)"
+        }
+      },
+      "addSubscriptionStep": {
+        "description": {
+          "en": "Click the button below to add subscription automatically. If it fails, copy the subscription link from your browser or the Telegram bot, then go to Profiles tab in the app and tap the '+' button in bottom right corner then paste your link.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для автоматического добавления подписки. Если не сработает — скопируйте ссылку подписки из браузера или Telegram-бота, затем в приложении перейдите во вкладку Profiles — нажмите на '+' в правом нижнем углу и вставьте ссылку."
+        }
+      },
+      "connectAndUseStep": {
+        "description": {
+          "en": "Proxy settings (servers, auto-routing) are in the Proxy tab. Enable in the Dashboard tab via the bottom-right button. Your traffic is now encrypted through our network! Questions or got issues? Contact our Telegram bot support.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Настройки прокси (серверы, авто-маршрутизация) — во вкладке Proxy. Включите во вкладке Dashboard через кнопку в правом нижнем углу. Ваш трафик теперь шифруется через нашу сеть! Остались вопросы или возникла проблема? Пожалуйста, напишите в техподдержку нашего Telegram-бота."
+        }
+      }
+    },
+    {
+      "id": "pandora-box",
+      "name": "Pandora Box",
+      "isFeatured": false,
+      "urlScheme": "clash://install-config?url=",
+      "installationStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.11-alpha2/windows-amd64-msi.zip",
+            "buttonText": {
+              "en": "Windows",
+              "fa": "Windows",
+              "ru": "Windows"
+            }
+          },
+          {
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.11-alpha2/macos-amd64-dmg.zip",
+            "buttonText": {
+              "en": "macOS (Intel)",
+              "fa": "macOS (Intel)",
+              "ru": "macOS (Intel)"
+            }
+          },
+          {
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.11-alpha2/macos-arm64-dmg.zip",
+            "buttonText": {
+              "en": "macOS (Apple Silicon)",
+              "fa": "macOS (Apple Silicon)",
+              "ru": "macOS (Apple Silicon)"
+            }
+          },
+          {
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases",
+            "buttonText": {
+              "en": "Linux (Manual installation)",
+              "fa": "Linux (Manual installation)",
+              "ru": "Linux (Ручная установка)"
+            }
+          }
+        ],
+        "description": {
+          "en": "Select your computer’s operating system (Windows/macOS/Linux), click the download button, and open the file to install.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Выберите операционную систему вашего компьютера (Windows/macOS/Linux), нажмите кнопку скачивания и откройте файл для установки."
+        }
+      },
+      "additionalBeforeAddSubscriptionStep": {
+        "buttons": [
+          {
+            "buttonLink": "https://t.me/frostproject_faq/210",
+            "buttonText": {
+              "en": "Instruction with screenshots",
+              "fa": "Sorry, there isn't a Persian translation yet",
+              "ru": "Инструкция по картинкам"
+            }
+          }
+        ],
+        "description": {
+          "en": "Enable 'Auth Tip' in the settings and restart the app. Then enable TUN and Proxy on the left sidebar (required). You can change the language and styles in the bottom left corner.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Включите 'Auth Tip' (Совет по аутентификации)в настройках и перезагрузите приложение. Затем включите TUN и Proxy в левой боковой панели (обязательно). Сменить язык и стили можно в нижнем левом углу."
+        },
+        "title": {
+          "en": "Change settings (required)",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Смена настроек (обязательно)"
+        }
+      },
+      "addSubscriptionStep": {
+        "description": {
+          "en": "Click the button below to add subscription automatically. If it fails, copy the subscription link from your browser or the Telegram bot, then go to Profiles tab in the app and tap the '+' button on the top then paste your link.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Нажмите кнопку ниже для автоматического добавления подписки. Если не сработает — скопируйте ссылку подписки из браузера или Telegram-бота, затем в приложении перейдите во вкладку Profiles — нажмите на '+' сверху и вставьте ссылку."
+        }
+      },
+      "connectAndUseStep": {
+        "description": {
+          "en": "Proxy settings (servers, auto-routing) are in the Proxy tab. Your traffic is now encrypted through our network! Questions or got issues? Contact our Telegram bot support.",
+          "fa": "Sorry, there isn't a Persian translation yet",
+          "ru": "Настройки прокси (серверы, авто-маршрутизация) — во вкладке Proxy. Ваш трафик теперь шифруется через нашу сеть! Остались вопросы или возникла проблема? Пожалуйста, напишите в техподдержку нашего Telegram-бота."
+        }
+      }
+    }
+  ]
+}

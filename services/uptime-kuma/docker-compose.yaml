@@ -1,0 +1,25 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:beta
+    container_name: uptime-kuma
+    hostname: uptime-kuma
+    restart: always
+    volumes:
+      - uptime-kuma-data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "127.0.0.1:4001:3001"
+    networks:
+      - remnawave-network
+
+networks:
+  remnawave-network:
+    name: remnawave-network
+    driver: bridge
+    external: true
+
+volumes:
+  uptime-kuma-data:
+    name: uptime-kuma-data
+    driver: local
+    external: false

@@ -1,0 +1,56 @@
+{
+  "log": {
+    "error": "/var/log/remnanode/error.log",
+    "access": "/var/log/remnanode/access.log",
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "tag": "VLESS TCP REALITY SELFSTEAL",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "fallbacks": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "target": "/dev/shm/nginx.sock",
+          "shortIds": [
+            "Брать из команды -> openssl rand -hex 8"
+          ],
+          "privateKey": "Брать из панели или команды -> docker exec remnanode xray x25519",
+          "serverNames": [
+            "de.frostproject.dev",
+            "ru.frostproject.dev",
+            "tr.frostproject.dev",
+            "nl.frostproject.dev",
+            "fi.frostproject.dev"
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "DIRECT",
+      "protocol": "freedom"
+    },
+    {
+      "tag": "BLOCK",
+      "protocol": "blackhole"
+    }
+  ]
+}
