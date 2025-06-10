@@ -60,7 +60,7 @@ networks:
   remnawave-network:
     name: remnawave-network
     driver: bridge
-    external: false
+    external: true # Создавать вручную через docker network create remnawave-network
 
 volumes:
   remnawave-db-data:
