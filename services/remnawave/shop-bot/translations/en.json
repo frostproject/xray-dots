@@ -30,7 +30,7 @@
   "trial_text": "🎁 3 days free — full access, no payment required. Test-drive the service yourself! Click the button below to activate.",
   "activate_trial_button": "🔥 Activate trial",
   "referral_button": "🤝 Bonus for a friend",
-  "referral_text": "Bonus program:\nInvite a friend — get 5 days for free!\n\n🤝 Total invited: %d people",
+  "referral_text": "Bonus program:\nInvite a friend — get 5 days for free!\n\n<i>The bonus is awarded when your invited friend purchases a subscription.</i>\n\n🤝 Total invited: %d people",
   "referral_bonus_granted": "🎁 You have received a referral bonus!",
   "stars_button": "⭐ Telegram stars",
   "share_referral_button": "📩 Share link"
