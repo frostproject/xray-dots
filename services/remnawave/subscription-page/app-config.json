@@ -84,7 +84,7 @@
       "installationStep": {
         "buttons": [
           {
-            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-android-arm64-v8a.apk",
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.85/FlClash-0.8.85-android-arm64-v8a.apk",
             "buttonText": {
               "en": "Download APK",
               "fa": "Download APK",
@@ -160,7 +160,7 @@
       "installationStep": {
         "buttons": [
           {
-            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-windows-amd64-setup.exe",
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.85/FlClash-0.8.85-windows-amd64-setup.exe",
             "buttonText": {
               "en": "Windows",
               "fa": "Windows",
@@ -168,7 +168,7 @@
             }
           },
           {
-            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-macos-amd64.dmg",
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.85/FlClash-0.8.85-macos-amd64.dmg",
             "buttonText": {
               "en": "macOS (Intel)",
               "fa": "macOS (Intel)",
@@ -176,7 +176,7 @@
             }
           },
           {
-            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.84/FlClash-0.8.84-macos-arm64.dmg",
+            "buttonLink": "https://github.com/chen08209/FlClash/releases/download/v0.8.85/FlClash-0.8.85-macos-arm64.dmg",
             "buttonText": {
               "en": "macOS (Apple Silicon)",
               "fa": "macOS (Apple Silicon)",
@@ -243,7 +243,7 @@
       "installationStep": {
         "buttons": [
           {
-            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.11-alpha2/windows-amd64-msi.zip",
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.12-alpha/windows-amd64-msi.zip",
             "buttonText": {
               "en": "Windows",
               "fa": "Windows",
@@ -251,7 +251,7 @@
             }
           },
           {
-            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.11-alpha2/macos-amd64-dmg.zip",
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.12-alpha/macos-amd64-dmg.zip",
             "buttonText": {
               "en": "macOS (Intel)",
               "fa": "macOS (Intel)",
@@ -259,7 +259,7 @@
             }
           },
           {
-            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.11-alpha2/macos-arm64-dmg.zip",
+            "buttonLink": "https://github.com/snakem982/Pandora-Box/releases/download/v1.0.12-alpha/macos-arm64-dmg.zip",
             "buttonText": {
               "en": "macOS (Apple Silicon)",
               "fa": "macOS (Apple Silicon)",
