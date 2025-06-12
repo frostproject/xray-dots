@@ -75,6 +75,12 @@ proxy-groups:
       - 🇩🇪 Германия
       - 🇹🇷 Турция
 
+  - name: Все сервера
+    type: select
+    remnawave:
+      include-proxies: false
+    include-all-proxies: true
+
   - name: ✨ Автовыбор
     type: load-balance
     strategy: sticky-sessions
