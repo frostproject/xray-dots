@@ -12,7 +12,7 @@
   "card_button": "💳 SBP or Russian cards",
   "pay_button": "💸 Pay",
   "subscription_active": "📅 Your subscription is active until: %s",
-  "subscription_link": "\n\n📖 Setup instructions are available on the subscription page — open it in your browser. Don’t forget to check out our <a href='https://t.me/frostproject_faq'>FAQ channel</a>. We cover common issues, answer questions, and publish service guides there.\n\n🔗 Subscription link:\n%s",
+  "subscription_link": "\n\n📖 Setup instructions are available on the subscription page — open it in your browser. Don’t forget to check out our <a href='https://t.me/frostproject_faq'>FAQ channel</a>. We cover common issues, answer questions, and publish service guides there.\n\n🔁 Don’t forget to update the configuration in your client regularly to receive all the latest updates. Usually, this can be done by tapping the button with a circular arrows icon inside the app.\n\n🔗 Subscription link:\n%s",
   "no_subscription": "❌ You don't have an active subscription",
   "subscription_activated": "✅ Your subscription has been activated! Please click the '📖 Installation manual' button.",
   "feedback_button": "⭐ Reviews",
