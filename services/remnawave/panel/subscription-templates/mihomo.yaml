@@ -73,7 +73,6 @@ proxy-groups:
       - 🇳🇱 Нидерланды
       - 🇷🇺 Россия
       - 🇩🇪 Германия
-      - 🇹🇷 Турция
 
   - name: Все сервера
     type: select
@@ -140,16 +139,6 @@ proxy-groups:
       include-proxies: false
     include-all-proxies: true
     filter: "(?i)(🇫🇮|\bfi\b|\bfinland\b)"
-
-  - name: 🇹🇷 Турция
-    type: load-balance
-    strategy: sticky-sessions
-    interval: 300
-    hidden: true
-    remnawave:
-      include-proxies: false
-    include-all-proxies: true
-    filter: "(?i)(🇹🇷|\btr\b|\bturkey\b)"
 
 rule-providers:
   oisd_big:
