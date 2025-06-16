@@ -1,0 +1,24 @@
+services:
+  certwarden:
+    image: ghcr.io/gregtwallace/certwarden:latest
+    container_name: certwarden
+    hostname: certwarden
+    restart: always
+    ports:
+      - 127.0.0.1:4050:4050
+    networks:
+      - remnawave-network
+    volumes:
+      - certwarden-data:/app/data
+
+volumes:
+  certwarden-data:
+    name: certwarden-data
+    driver: local
+    external: false
+
+networks:
+  remnawave-network:
+    name: remnawave-network
+    driver: bridge
+    external: true

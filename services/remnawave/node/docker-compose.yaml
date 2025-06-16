@@ -15,10 +15,20 @@ services:
     image: nginx:1.26
     container_name: nginx
     hostname: nginx
+    restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./fullchain.pem:/etc/nginx/ssl/fullchain.pem:ro
-      - ./privkey.key:/etc/nginx/ssl/privkey.key:ro
+      - ./ssl:/etc/nginx/ssl:ro
       - /dev/shm:/dev/shm:rw
       - ./selfsteal-app:/var/www/html:ro
+
+  certwarden-client:
+    image: ghcr.io/gregtwallace/certwarden-client:latest
+    container_name: certwarden-client
+    hostname: certwarden-client
     restart: always
+    env_file:
+      - .env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./ssl:/opt/certwarden/certs
