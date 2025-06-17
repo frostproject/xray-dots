@@ -23,7 +23,7 @@ services:
       - ./selfsteal-app:/var/www/html:ro
 
   certwarden-client:
-    image: ghcr.io/gregtwallace/certwarden-client:latest
+    image: ghcr.io/frostproject/certwarden-client:latest
     container_name: certwarden-client
     hostname: certwarden-client
     restart: always
