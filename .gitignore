@@ -1,2 +1,3 @@
 .env*
 !.env.sample
+!ansible/host_vars/country-1.yaml
