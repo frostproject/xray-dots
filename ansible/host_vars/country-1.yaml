@@ -1,0 +1,7 @@
+---
+ansible_user: # user
+ansible_host: # ip
+ansible_ssh_private_key_file: # path to private key
+PORT: # random port for xray
+DOMAIN: # country code - number eg: de-1
+TZ: # timezone of the node

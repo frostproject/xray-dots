@@ -1,0 +1,164 @@
+---
+- name: Deploy node
+  hosts: nodes
+
+  vars:
+    docker_edition: "ce"
+    docker_packages:
+      - "docker-{{ docker_edition }}"
+      - "docker-{{ docker_edition }}-cli"
+      - "docker-{{ docker_edition }}-rootless-extras"
+    docker_packages_state: present
+    pip_install_packages:
+      - name: docker
+
+  pre_tasks:
+    - name: Update & Upgrade packages
+      apt:
+        update_cache: yes
+        upgrade: yes
+        autoremove: yes
+        autoclean: yes
+
+    - name: Download required packages
+      apt:
+        pkg:
+          - cron
+          - rsync
+          - socat
+          - git
+          - sudo
+        state: latest
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+
+  tasks:
+    - name: Disable password authentication for root
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        state: present
+        regexp: "^#?PermitRootLogin"
+        line: "PermitRootLogin prohibit-password"
+
+    - name: Create iceeburr user
+      ansible.builtin.user:
+        name: iceeburr
+        create_home: yes
+        groups: sudo
+
+    - name: Make users passwordless for sudo in group sudo
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^%sudo'
+        line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+
+    - name: Create /opt/remnanode
+      file:
+        path: "/opt/remnanode"
+        state: directory
+        mode: 0755
+
+    - name: Copy ssh to iceeburr
+      copy:
+        src: /root/.ssh
+        dest: /home/iceeburr/.ssh
+        remote_src: true
+        owner: iceeburr
+        group: iceeburr
+        mode: 0700
+
+    - name: Copy sysctl.conf
+      copy:
+        src: ../linux/sysctl.conf
+        dest: /etc/sysctl.conf
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Apply sysctl settings
+      command: sysctl -p
+
+    - name: Copy docker-compose.yaml
+      copy:
+        src: ../services/remnawave/node/docker-compose.yaml
+        dest: /opt/remnanode/docker-compose.yaml
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Copy nginx.conf
+      copy:
+        src: ../services/remnawave/node/nginx.conf
+        dest: /opt/remnanode/nginx.conf
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Set domain in nginx
+      lineinfile:
+        path: /opt/remnanode/nginx.conf
+        state: present
+        regexp: "server_name country-1.frostproject.dev"
+        line: "    server_name {{ DOMAIN }}.frostproject.dev"
+
+    - name: Cloning sni-templates
+      git:
+        repo: "https://github.com/SmallPoppa/sni-templates"
+        dest: /tmp/sni-templates
+        version: main
+        update: yes
+
+    - name: Copy self-steal
+      copy:
+        src: /tmp/sni-templates/downloader/
+        dest: /opt/remnanode/selfsteal-app/
+        remote_src: true
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Get SSL-CERT
+      ansible.builtin.uri:
+        url: https://panel.frostproject.dev/api/keygen
+        method: GET
+        headers:
+          Authorization: "Bearer {{ authorization }}"
+          CF-Access-Client-Id: "{{ cf_access_client_id }}"
+          CF-Access-Client-Secret: "{{ cf_access_client_secret }}"
+        return_content: true
+      register: sslcert
+
+    - name: Create .env
+      copy:
+        dest: "/opt/remnanode/.env"
+        content: |
+          APP_PORT = {{ PORT }}
+          SSL_CERT = "{{ sslcert.json.response.pubKey }}"
+
+          TZ = {{ TZ }}
+          CW_CLIENT_FILE_UPDATE_TIME_START = '04:30'
+          CW_CLIENT_FILE_UPDATE_TIME_END = '05:45'
+          CW_CLIENT_FILE_UPDATE_DAYS_OF_WEEK = 'Wed'
+          CW_CLIENT_RESTART_DOCKER_CONTAINER0 = nginx
+          CW_CLIENT_AES_KEY_BASE64 = {{ cw_client_aes_key_base64 }}
+          CW_CLIENT_SERVER_ADDRESS = https://certwarden.frostproject.dev
+          CW_CLIENT_KEY_NAME = Production_Wildcard
+          CW_CLIENT_KEY_APIKEY = {{ cw_client_key_apikey }}
+          CW_CLIENT_CERT_NAME = Production_Wildcard
+          CW_CLIENT_CERT_APIKEY = {{ cw_client_cert_apikey }}
+
+          CW_CLIENT_CF_ACCESS_CLIENT_ID = {{ cf_access_client_id }}
+          CW_CLIENT_CF_ACCESS_CLIENT_SECRET = {{ cf_access_client_secret }}
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Start remnanode compose
+      community.docker.docker_compose_v2:
+        project_src: /opt/remnanode/
+        pull: missing
+        state: present
