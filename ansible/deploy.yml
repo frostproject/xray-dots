@@ -35,12 +35,26 @@
     - geerlingguy.docker
 
   tasks:
-    - name: Disable password authentication for root
+    - name: Disable root login for ssh
       lineinfile:
         path: /etc/ssh/sshd_config
         state: present
         regexp: "^#?PermitRootLogin"
-        line: "PermitRootLogin prohibit-password"
+        line: "PermitRootLogin no"
+
+    - name: Enable pubKey auth for ssh
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        state: present
+        regexp: "^#?PubkeyAuthentication"
+        line: "PubkeyAuthentication yes"
+
+    - name: Disable password authentication for ssh
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        state: present
+        regexp: "^#?PasswordAuthentication"
+        line: "PasswordAuthentication no"
 
     - name: Create iceeburr user
       ansible.builtin.user:
@@ -133,26 +147,9 @@
       register: sslcert
 
     - name: Create .env
-      copy:
+      ansible.builtin.template:
+        src: "templates/env.j2"
         dest: "/opt/remnanode/.env"
-        content: |
-          APP_PORT = {{ PORT }}
-          SSL_CERT = "{{ sslcert.json.response.pubKey }}"
-
-          TZ = {{ TZ }}
-          CW_CLIENT_FILE_UPDATE_TIME_START = '04:30'
-          CW_CLIENT_FILE_UPDATE_TIME_END = '05:45'
-          CW_CLIENT_FILE_UPDATE_DAYS_OF_WEEK = 'Wed'
-          CW_CLIENT_RESTART_DOCKER_CONTAINER0 = nginx
-          CW_CLIENT_AES_KEY_BASE64 = {{ cw_client_aes_key_base64 }}
-          CW_CLIENT_SERVER_ADDRESS = https://certwarden.frostproject.dev
-          CW_CLIENT_KEY_NAME = Production_Wildcard
-          CW_CLIENT_KEY_APIKEY = {{ cw_client_key_apikey }}
-          CW_CLIENT_CERT_NAME = Production_Wildcard
-          CW_CLIENT_CERT_APIKEY = {{ cw_client_cert_apikey }}
-
-          CW_CLIENT_CF_ACCESS_CLIENT_ID = {{ cf_access_client_id }}
-          CW_CLIENT_CF_ACCESS_CLIENT_SECRET = {{ cf_access_client_secret }}
         owner: root
         group: root
         mode: "0644"
@@ -162,3 +159,15 @@
         project_src: /opt/remnanode/
         pull: missing
         state: present
+
+    - name: Create node
+      ansible.builtin.uri:
+        url: https://panel.frostproject.dev/api/nodes
+        method: POST
+        headers:
+          Authorization: "Bearer {{ authorization }}"
+          CF-Access-Client-Id: "{{ cf_access_client_id }}"
+          CF-Access-Client-Secret: "{{ cf_access_client_secret }}"
+        body_format: json
+        body: '{"name": "{{ NODENAME }}", "address": "{{ DOMAIN }}.frostproject.dev", "port": {{ PORT }}, "isTrafficTrackingActive": false, "trafficLimitBytes": 1, "countryCode": "{{ COUNTRYCODE }}", "consumptionMultiplier": 1}'
+        status_code: 201
