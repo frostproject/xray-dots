@@ -1,0 +1,18 @@
+---
+- name: Update containers
+  hosts: nodes
+
+  tasks:
+    - name: Pull node image
+      community.docker.docker_image_pull:
+        name: remnawave/node
+      become: true
+      become_method: sudo
+
+    - name: Start remnanode compose
+      community.docker.docker_compose_v2:
+        project_src: /opt/remnanode/
+        pull: missing
+        state: present
+      become: true
+      become_method: sudo
