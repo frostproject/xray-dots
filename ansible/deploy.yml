@@ -117,7 +117,7 @@
         path: /opt/remnanode/nginx.conf
         state: present
         regexp: "server_name country-1.frostproject.dev"
-        line: "    server_name {{ DOMAIN }}.frostproject.dev"
+        line: "    server_name {{ DOMAIN }}.frostproject.dev;"
 
     - name: Cloning sni-templates
       git:
@@ -133,7 +133,7 @@
         remote_src: true
         owner: root
         group: root
-        mode: "0644"
+        mode: "0755"
 
     - name: Get SSL-CERT
       ansible.builtin.uri:
